@@ -8,7 +8,114 @@
         <link href="css/main.css" rel="stylesheet">
     </head>
     <body>
+
+        <h1 class="hidden">Welcome to Squeezit Earbuds page!</h1>
+            <header>
+                <h2 class="hidden">main header</h2>
+                <section class="grid-con">
+                    <div class="col-span-3 m-col-span-3 l-col-span-3">
+                        <img src="images/logo.png" alt="Squeezit logo">
+                    </div>
+                    <nav class="col-span-5 m-col-span-8 l-col-span-8 desktop-nav">
+                        <ul class="main-nav">
+                            <li><a href="#about">About</a></li>
+                            <li><a href="#features">Features</a></li>
+                            <li><a href="#ar">3D Model</a></li>
+                            <li><a href="#xray">X-Ray</a></li>
+                            <li><a href="#quick-buy">Quick buy</a></li>
+                        </ul>
+                    </nav>
+
+                    <div class="col-span-1 m-col-span-1 l-col-span-1">
+                        <button id="hamburger">&#9776;</button>
+                    </div>
+                </section>
+            </header>
+
+            <div id="menu" class="overlay">
+                <button id="close">&times;</button>
+                <nav>
+                    <ul>
+                        <li><a href="#about">About</a></li>
+                        <li><a href="#features">Features</a></li>
+                        <li><a href="#ar">3D Model</a></li>
+                        <li><a href="#xray">X-Ray</a></li>
+                        <li><a href="#quick-buy">Quick buy</a></li>
+                    </ul>
+                </nav>
+            </div>
+
+            <section id="main-hero">
+                <h2 class="hidden">Hero video 1</h2>
+                <div class="hero-video">
+                    <video autoplay muted loop playsinline>
+                        <source src="videos/earbudsvideo.webm" type="video/webm">
+                        Your browser does not support the video tag.
+                    </video>
+                </div>
+            </section>
+
+            <section id="about">
+                <h2 class="hidden">About Section</h2>
+                <section class="grid-con">
+                    <div class="col-span-4 m-col-span-6 l-col-span-6">
+                        <div class="box">
+                            <img src="images/poster1.png" alt="Squeezit logo">
+                        </div>
+                    </div>
+                    <div class="col-span-4 m-col-span-6 l-col-span-6">
+                        <h2>About</h2>
+                        <p>Squeezit Earbuds are designed for people who want their tech to feel a little less boring and a lot more fun. Inspired by classic alien icons, each earbud blends a deep metallic purple shell with neon green accents and a friendly extraterrestrial face. The rounded shape sits comfortably in your ear, while the smooth surface makes them easy to grip, pop in, and go.</p>
+                        <p>Behind the playful look, Squeezit delivers clear, immersive sound for music, games, and videos. The matching charging case keeps your earbuds powered and protected, with the same bold UFO-style design that stands out the moment you open it. Explore the earbuds in full 3D on this site, spin them in AR, and zoom in on every detail before they ever reach your ears.</p>
+                    </div>
+                </section>
+            </section>
+
+            <section id="features">
+                <h2 class="hidden">features section</h2>
+                <section class="grid-con">
+                    <div class="col-span-full">
+                        <h2>Features</h2>
+                        <p>Here are some standout features of the Squeezit Earbuds.</p>
+                    </div>
+
+                    <div class="col-span-4 m-col-span-4 l-col-span-4">
+                        <div class="feature-box">
+                            <img src="images/poster4.png" alt="Soft Shape">
+                            <div class="feature-content">
+                                <h2>Soft Shape</h2>
+                                <p>The earbuds have a smooth, rounded outer shell.</p>
+                                <p class="sub-text">Designed for long-lasting comfort.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-span-4 m-col-span-4 l-col-span-4">
+                        <div class="feature-box">
+                            <img src="images/photoofthecase.jpg" alt="Charging Case">
+                            <div class="feature-content">
+                                <h2>Charging Case</h2>
+                                <p>The case stores and charges both earbuds.</p>
+                                <p class="sub-text">Matches the alien-inspired design.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-span-4 m-col-span-4 l-col-span-4">
+                        <div class="feature-box">
+                            <img src="images/poster2.png" alt="Simple Controls">
+                            <div class="feature-content">
+                                <h4>Simple Controls</h4>
+                                <p>Tap the flying saucer to play or pause your audio.</p>
+                                <p class="sub-text">Hands-free control that's fast, easy, and fun.</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </section>
+
         <section class="grid-con">
+            <h2 class="hidden">Ar model</h2>
             <div class="l-col-span-12 m-col-span-12 col-span-full ">
                 <model-viewer id="model" src="model/model.gltf" ar ar-modes="webxr scene-viewer quick-look" camera-controls poster="images/poster.webp" tone-mapping="neutral" poster="poster.webp" shadow-intensity="1" camera-orbit="-669.2deg 0.0000573deg 1.693m" field-of-view="30deg" auto-rotate>
                     <button class="Hotspot" slot="hotspot-1" data-position="-6.016875197778983m 1.50054696024706m 3.6849259069337053m" data-normal="-0.3104317521380381m 0.931002887516099m 0.1920045590635637m" data-visibility-attribute="visible">
@@ -40,7 +147,55 @@
                     </div>
                 </model-viewer>
             </div>
-        </section>  
+        </section> 
+        
+        <section class="grid-con" id="quick-buy">
+            <h2 class="hidden">quick buy button</h2>
+                <div class="col-span-full quick-buy">
+                    <button class="quick-buy-btn">Quick Buy</button>
+                </div>
+        </section>
+
+        <section class="grid-con video">
+            <h2 class="hidden">Video for the Squeezit Website</h2>
+            <div class="col-span-full l-col-span-8 l-col-start-3 m-col-span-8 m-col-start-3 video-container">
+                <video autoplay loop playsinline poster="videos/Kirs_Mikhail_Cinemagraph.mp4">
+                    <source src="videos/Kirs_Mikhail_Cinemagraph.mp4" type="video/mp4">
+                    <source src="videos/Kirs_Mikhail_Cinemagraph.mp4" type="video/webm">
+                </video>
+            </div>
+        </section>
+
+        <div class="col-span-full text-box">
+            <p>You can also try this alien experience with the full drinks collection from Squeezit.</p>
+            <button class="video-btn">Visit Squeezit</button>
+        </div>
+
+        <footer>
+            <h2 class="hidden">footer</h2>
+            <section class="grid-con">
+                <div class="l-col-span-2 l-col-start-6 m-col-span-2 m-col-start-6 col-span-full xl-col-span-2 xl-col-start-6 footer_box">
+                    <div class="footer_div">
+                        <img src="images/main_logo.png" alt="Logo" class="footer-logo">
+                    </div>
+                </div>
+                <div class="l-col-span-3 l-col-start-10 m-col-span-3 m-col-start-10 col-span-4 xl-col-span-3 xl-col-start-10">
+                    <h2 class="hidden">Social Media</h2>
+                    <div class="social-icons">
+                        <a href="https://www.twitter.com" target="blank">
+                            <img src="images/twitter.png" alt="Twitter" class="social-icon">
+                        </a>
+                        <a href="https://www.instagram.com" target="blank">
+                            <img src="images/instagram.png" alt="Instagram" class="social-icon">
+                        </a>
+                        <a href="https://www.youtube.com/" target="blank">
+                            <img src="images/youtube.png" alt="Youtube" class="social-icon">
+                        </a>
+                    </div> 
+                </div>
+            </section>
+        </footer>
+        
         <!-- link to greensock main library -->
         <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js"></script>
         <!-- Loads <model-viewer> for browsers: -->
