@@ -1,4 +1,18 @@
 (() => {
+
+  console.log("IIFE Called for explode view");
+
+  const menu = document.querySelector("#menu");
+  const hamburger = document.querySelector("#hamburger");
+  const closeButton = document.querySelector("#close");
+  const menuLinks = document.querySelectorAll("#menu nav ul li a");
+
+  const navScrollLinks = document.querySelectorAll('a[href^="#"]');
+  const fixedHeader = document.querySelector('header');
+
+  const quickBuyButton = document.querySelector('.quick-buy-btn');
+  const visitSqueezitButton = document.querySelector('.video-btn');
+
   const hotspots = document.querySelectorAll(".Hotspot");
 
   const infoBoxes = [
@@ -24,7 +38,52 @@
     }
   ]
 
+  const divisor = document.querySelector("#divisor");
+  const slider = document.querySelector("#slider");
+
 //functions
+  
+  function measureHeaderHeight(){
+  if (!fixedHeader){
+  return 0;
+  }
+
+  return fixedHeader.offsetHeight;
+  }
+
+  function smoothLinkScroll(event) {
+  event.preventDefault();
+  const destinationId = event.currentTarget.getAttribute('href');
+  const destinationSection = document.querySelector(destinationId);
+  if (!destinationSection) {
+  return;
+  }
+
+  const headerOffset = measureHeaderHeight();
+  const sectionPosition = destinationSection.getBoundingClientRect().top + window.pageYOffset;
+  const finalScrollPosition = sectionPosition - headerOffset;
+
+  window.scrollTo({
+    top: finalScrollPosition,
+    behavior: 'smooth'
+  });
+}
+
+function registerScrollHandler(link) {
+  link.addEventListener('click', smoothLinkScroll);
+}
+
+  function toggleMenu() {
+    menu.classList.toggle("open");
+  }
+
+  function handleQuickBuyClick() {
+  alert('Quick Buy activated!');
+  }
+
+  function handleVisitSqueezitClick() {
+  alert('In the final version this button would link to the Squeezit site.');
+  }
 
   function loadInfo() {
     infoBoxes.forEach((infoBox, index)=>{
@@ -80,10 +139,95 @@
     let selected = document.querySelector(`#${this.slot}`);
     gsap.to(selected, { duration: 1, autoAlpha: 0 });
   }
+
+  function moveDivisor() {
+      // console.log(slider.value);
+      divisor.style.width = `${slider.value}%`;
+    }
+
+    function resetSlider() {
+        slider.value = 50;
+    }
   
- hotspots.forEach(function (hotspot) {
+  closeButton.addEventListener("click", toggleMenu);
+
+  menuLinks.forEach((link) => {
+    link.addEventListener("click", toggleMenu);
+  });
+
+  hamburger.addEventListener("click", toggleMenu);
+
+  navScrollLinks.forEach(registerScrollHandler); 
+
+  hotspots.forEach(function (hotspot) {
     hotspot.addEventListener("mouseenter", showInfo);
     hotspot.addEventListener("mouseleave", hideInfo);
   });
+
+  slider.addEventListener("input", moveDivisor);
+  window.addEventListener("load", resetSlider);
+
+  if (quickBuyButton) {
+  quickBuyButton.addEventListener('click', handleQuickBuyClick);
+  }
+
+  if (visitSqueezitButton) {
+  visitSqueezitButton.addEventListener('click', handleVisitSqueezitClick);
+  }
+
+  // I wanted to put it all in the right places but it was all a bit confusing for me so I left it here
+
+  const canvas = document.querySelector("#explode-view");
+
+  if (!canvas) {
+    return;
+  }
+
+  const context = canvas.getContext("2d");
+  canvas.width = 1920;
+  canvas.height = 1080;
+
+  //How many still frames do we have, you will need to adjust this
+  const frameCount = 260;
+
+  //array to hold our images
+  const images = [];
+
+  //object will hold the current frame
+  //we will use GreenSock to animate the frame property
+  const buds = {
+    frame: 0
+  };
+
+  //Run a for loop to populate images array
+  for (let i = 0; i < frameCount; i++) {
+    const img = new Image();
+    const frameNumber = i.toString().padStart(5, "0");
+    img.src = `images/earbudsvideo_${frameNumber}.jpg`;
+    images.push(img);
+  }
+  console.log(images);
+
+  gsap.to(buds, {
+    frame: frameCount - 1,
+    snap: "frame",
+    scrollTrigger: {
+      trigger: "#explode-view",
+      pin: true,
+      scrub: 1,
+      start: "top top",
+      markers: true 
+    },
+    onUpdate: render
+  });
+
+  images[0].addEventListener("load", render);
+
+  function render() {
+    //console.log(buds.frame);
+    //console.log(images[buds.frame]);
+    context.clearRect(0, 0, canvas.width, canvas.height);
+    context.drawImage(images[buds.frame], 0, 0);
+  }
 
 })();
