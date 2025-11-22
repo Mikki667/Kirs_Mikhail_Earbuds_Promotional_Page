@@ -22,7 +22,8 @@ section {
   padding: 20px;
   text-align: center;
   margin: 10px 0;
-  border-radius: 6px;
+  border-radius: 20px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
 }
 
 #about {
@@ -34,18 +35,18 @@ section {
 }
 
 #ar {
-  background: #a80be6;
+  background: #5BDB7F;
 }
 
-#xray {
+#x-ray {
   background: #fff;
 }
 
 #about h2,
 #features h2,
 #ar h2,
-#xray h2 {
-  margin-bottom: 10px;
+#x-ray h2 {
+  margin-bottom: 20px;
 }
 
 model-viewer {
@@ -122,10 +123,60 @@ model-viewer::part(default-progress-mask) {
   display: none;
 }
 
+.ar-mobile-fallback {
+  display: none;
+}
+
+.ar-mobile-heading {
+  text-align: center;
+  font-size: 24px;
+  margin: 24px 0 20px;
+}
+
+.ar-info-card {
+  background-color: #ffffff;
+  border-radius: 16px;
+  padding: 16px;
+  margin-bottom: 20px;
+  border: 4px solid #f700ff;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.ar-info-card img {
+  width: 100%;
+  border-radius: 12px;
+  margin-bottom: 10px;
+}
+
+.ar-info-card h2 {
+  font-size: 20px;
+  margin-bottom: 6px;
+  text-transform: capitalize;
+}
+
+.ar-info-card p {
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+@media screen and (max-width: 768px) {
+  model-viewer {
+    display: none;
+  }
+  .ar-mobile-fallback {
+    display: block;
+    margin-top: 10px;
+    padding: 0 16px 24px 16px;
+  }
+  .ar-info-grid {
+    grid-template-columns: 1fr;
+  }
+}
 header {
   background-color: #a80be6;
   padding: 8px 0;
   position: relative;
+  border: 3px solid #5BDB7F;
 }
 
 header img {
@@ -226,6 +277,17 @@ header nav {
   color: #5BDB7F;
 }
 
+@media (max-width: 767px) {
+  header img {
+    width: 70px;
+  }
+  .main-nav {
+    display: none;
+  }
+  #hamburger {
+    display: block;
+  }
+}
 footer {
   background-color: #a80be6;
   padding: 10px;
@@ -252,9 +314,84 @@ footer {
 .social-icon {
   width: 50px;
   height: auto;
-  background-color: #000000;
+  background-color: #5BDB7F;
   padding: 5px;
   border-radius: 30%;
+  cursor: pointer;
+}
+
+#xray {
+  position: relative;
+  aspect-ratio: 16/9;
+  background-image: url(../images/xray1.jpg);
+  background-size: cover;
+  border-radius: 20px;
+}
+
+#divisor {
+  position: absolute;
+  top: 0;
+  left: 0;
+  aspect-ratio: 16/9;
+  background-image: url(../images/x_ray2.jpg);
+  background-size: cover;
+  width: 50%;
+  height: 100%;
+  border-radius: 20px;
+}
+
+#divisor::after {
+  content: "";
+  position: absolute;
+  right: 0;
+  width: 6px;
+  height: 100%;
+  background-color: #5BDB7F;
+  border-radius: 20px;
+}
+
+input[type=range] {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  position: absolute;
+  left: -15px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: calc(100% + 20px);
+  height: 20px;
+  background: transparent;
+}
+
+input[type=range]::-webkit-slider-runnable-track {
+  height: 0;
+  background: transparent;
+  border: none;
+}
+
+input[type=range]::-moz-range-track {
+  height: 0;
+  background: transparent;
+  border: none;
+}
+
+input[type=range]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  background: #fff;
+  border-radius: 50%;
+  border: 3px solid #a80be6;
+  cursor: pointer;
+}
+
+input[type=range]::-moz-range-thumb {
+  width: 20px;
+  height: 20px;
+  background: #fff;
+  border-radius: 50%;
+  border: none;
   cursor: pointer;
 }
 
@@ -278,6 +415,31 @@ footer {
   height: auto;
   display: block;
   border-radius: 10px;
+}
+
+.info {
+  background-color: #ffffff;
+  padding: 20px;
+  border-radius: 20px;
+  border: 5px solid #5bdb7f;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.features-text {
+  background-color: #ffffff;
+  padding: 20px;
+  border-radius: 20px;
+  border: 5px solid #5bdb7f;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.x-ray-text {
+  background-color: #ffffff;
+  padding: 20px;
+  border-radius: 20px;
+  border: 5px solid #5bdb7f;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
 }
 
 .feature-box {
@@ -385,4 +547,11 @@ footer {
   background: #42b766;
   transform: translateY(-3px);
   box-shadow: 0 7px 16px rgba(0, 0, 0, 0.3);
+}
+
+#explode-view {
+  max-width: 100%;
+  width: 100%;
+  display: block;
+  margin: 0 auto;
 }/*# sourceMappingURL=main.css.map */

@@ -19,6 +19,31 @@
     border-radius: 10px; 
 }
 
+  .info {
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 20px;
+    border: 5px solid #5bdb7f;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  }
+
+  .features-text {
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 20px;
+    border: 5px solid #5bdb7f;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  }
+
+  .x-ray-text {
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 20px;
+    border: 5px solid #5bdb7f;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+  }
+
 .feature-box {
     background: #ffffff;
     border-radius: 12px;
@@ -124,4 +149,11 @@
     background: #42b766;
     transform: translateY(-3px);
     box-shadow: 0 7px 16px rgba(0,0,0,0.30);
+}
+
+#explode-view {
+  max-width: 100%;
+  width: 100%;
+  display: block;
+  margin: 0 auto;
 }

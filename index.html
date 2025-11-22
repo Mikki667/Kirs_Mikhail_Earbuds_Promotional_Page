@@ -46,12 +46,9 @@
             </div>
 
             <section id="main-hero">
-                <h2 class="hidden">Hero video 1</h2>
+                <h2 class="hidden">Hero scroll animation</h2>
                 <div class="hero-video">
-                    <video autoplay muted loop playsinline>
-                        <source src="videos/earbudsvideo.webm" type="video/webm">
-                        Your browser does not support the video tag.
-                    </video>
+                    <canvas id="explode-view"></canvas>
                 </div>
             </section>
 
@@ -63,7 +60,7 @@
                             <img src="images/poster1.png" alt="Squeezit logo">
                         </div>
                     </div>
-                    <div class="col-span-4 m-col-span-6 l-col-span-6">
+                    <div class="col-span-4 m-col-span-6 l-col-span-6 info">
                         <h2>About</h2>
                         <p>Squeezit Earbuds are designed for people who want their tech to feel a little less boring and a lot more fun. Inspired by classic alien icons, each earbud blends a deep metallic purple shell with neon green accents and a friendly extraterrestrial face. The rounded shape sits comfortably in your ear, while the smooth surface makes them easy to grip, pop in, and go.</p>
                         <p>Behind the playful look, Squeezit delivers clear, immersive sound for music, games, and videos. The matching charging case keeps your earbuds powered and protected, with the same bold UFO-style design that stands out the moment you open it. Explore the earbuds in full 3D on this site, spin them in AR, and zoom in on every detail before they ever reach your ears.</p>
@@ -74,7 +71,7 @@
             <section id="features">
                 <h2 class="hidden">features section</h2>
                 <section class="grid-con">
-                    <div class="col-span-full">
+                    <div class="col-span-full features-text" >
                         <h2>Features</h2>
                         <p>Here are some standout features of the Squeezit Earbuds.</p>
                     </div>
@@ -114,7 +111,7 @@
                 </section>
             </section>
 
-        <section class="grid-con">
+        <section class="grid-con" id="ar">
             <h2 class="hidden">Ar model</h2>
             <div class="l-col-span-12 m-col-span-12 col-span-full ">
                 <model-viewer id="model" src="model/model.gltf" ar ar-modes="webxr scene-viewer quick-look" camera-controls poster="images/poster.webp" tone-mapping="neutral" poster="poster.webp" shadow-intensity="1" camera-orbit="-669.2deg 0.0000573deg 1.693m" field-of-view="30deg" auto-rotate>
@@ -146,8 +143,48 @@
                         <img src="https://modelviewer.dev/shared-assets/icons/hand.png">
                     </div>
                 </model-viewer>
+
+                <section class="col-span-full m-col-span-12 l-col-span-12 ar-mobile-fallback">
+                    <h2 class="ar-mobile-heading">Squeezit Earbuds Details</h2>
+                    <div class="ar-info">
+                        <div class="ar-info-card">
+                            <img src="images/earpiece.jpg" alt="earpiece detail">
+                            <h2>earpiece</h2>
+                            <p>The earpiece delivers clear, balanced sound directly to your ear. Its smooth shape and soft padding ensure comfort during long listening sessions.</p>
+                        </div>
+                        <div class="ar-info-card">
+                            <img src="images/logo.jpg" alt="logo detail">
+                            <h2>logo</h2>
+                            <p>The logo represents the redesigned "Squeezit" brand, blending its playful identity with an alien-inspired theme. The bold green and purple design gives it a distinctive, otherworldly vibe.</p>
+                        </div>
+                        <div class="ar-info-card">
+                            <img src="images/flying_saucer.jpg" alt="flying saucer detail">
+                            <h2>flying saucer</h2>
+                            <p>This rounded outer shell protects the internal speakers. Its shiny purple surface and aerodynamic curves make it resemble a flying saucer in motion.</p>
+                        </div>
+                        <div class="ar-info-card">
+                            <img src="images/power_block.jpg" alt="power block detail">
+                            <h2>power block</h2>
+                            <p>The power block connects the system and provides stability. Its clean design and green outline complement the rest of the headset’s aesthetic.</p>
+                        </div>
+                    </div>
+                </section>
             </div>
-        </section> 
+        </section>
+        
+        <section class="grid-con" id="x-ray">
+            <h2 class="hidden">X-ray view</h2>
+            <div class="col-span-full x-ray-text">
+                <h2>X-ray</h2>
+                <p>Here you can see the X-ray model of the earbuds.</p>
+            </div>
+            <div class="col-span-full">        
+                <div id="xray">
+                    <div id="divisor"></div>
+                    <input type="range" min="0" max="100" value="50" id="slider">
+                </div>    
+            </div>
+        </section>
         
         <section class="grid-con" id="quick-buy">
             <h2 class="hidden">quick buy button</h2>
@@ -198,9 +235,11 @@
         
         <!-- link to greensock main library -->
         <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollTrigger.min.js"></script>
         <!-- Loads <model-viewer> for browsers: -->
         <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/4.0.0/model-viewer.min.js"></script>
         <!-- Our JS folder last -->
         <script src="js/main.js"></script>
+        <script src="js/animations.js"></script>
     </body>
 </html>
