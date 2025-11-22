@@ -1,5 +1,7 @@
 # Kirs_Mikhail_Earbuds_Promotional_Page
 
+![poster image](images/poster1.png)
+
 ## Overview
 This project is a promotional site for my redesigned version of **Squeezit** — a brand I brought back in 2025 with a new **alien-inspired** theme.
 
